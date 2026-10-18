@@ -1,0 +1,6 @@
+#!/bin/sh
+# raftcheck -- deterministic Raft schedule explorer entrypoint.
+# Forwards every flag to the Python core; the exit status is the explorer's:
+# 0 = sweep clean, 1 = invariant violation, 2 = usage or internal error.
+RAFTCHECK_PYTHON="${RAFTCHECK_PYTHON:-python3}"
+exec "$RAFTCHECK_PYTHON" "$(dirname "$0")/raftcheck.py" "$@"
